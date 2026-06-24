@@ -10,7 +10,31 @@
 </head>
 
 <body>
-  <header></header>
+  <header>
+    <nav aria-label="Navegação principal">
+      <a href="#sobre" class="nav-logo"><span>&lt;/&gt;</span> Iana Rodrigues</a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#sobre" class="nav-link active">Sobre mim</a></li>
+        <li><a href="#formacao" class="nav-link">Formação</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <button id="theme-toggle" aria-label="Alternar tema" title="Alternar tema claro/escuro">
+          <span id="theme-icon">☀️</span>
+          <span id="theme-label">Claro</span>
+        </button>
+
+        <button id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
   <main>
     <section id="sobre"></section>
