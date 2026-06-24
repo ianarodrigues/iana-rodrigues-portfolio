@@ -42,3 +42,30 @@ themeToggle.addEventListener('click', () => {
   const eClaro = document.documentElement.classList.contains('light');
   eClaro ? aplicarTemaEscuro() : aplicarTemaClaro();
 });
+
+const elementosReveal = document.querySelectorAll('.reveal');
+
+const observadorReveal = new IntersectionObserver((entradas) => {
+  entradas.forEach(entrada => {
+    if (entrada.isIntersecting) {
+      entrada.target.classList.add('visivel');
+    }
+  });
+}, { threshold: 0.12 });
+
+elementosReveal.forEach(el => observadorReveal.observe(el));
+
+const barrasIdioma = document.querySelectorAll('.idioma-barra');
+
+const observadorBarras = new IntersectionObserver((entradas) => {
+  entradas.forEach(entrada => {
+    if (entrada.isIntersecting) {
+      const larguraAlvo = entrada.target.dataset.width;
+      entrada.target.style.width = larguraAlvo;
+
+      observadorBarras.unobserve(entrada.target);
+    }
+  });
+}, { threshold: 0.5 }); 
+
+barrasIdioma.forEach(barra => observadorBarras.observe(barra));
