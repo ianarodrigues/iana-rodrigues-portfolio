@@ -1,3 +1,22 @@
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks   = document.getElementById('nav-links');
+
+menuToggle.addEventListener('click', () => {
+  const estaAberto = navLinks.classList.toggle('aberto');
+
+  menuToggle.classList.toggle('open');
+
+  menuToggle.setAttribute('aria-expanded', estaAberto);
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('aberto');
+    menuToggle.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', false);
+  });
+});
+
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon   = document.getElementById('theme-icon');
 const themeLabel  = document.getElementById('theme-label');
