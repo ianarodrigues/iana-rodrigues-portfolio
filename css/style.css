@@ -938,6 +938,21 @@ nav {
   background: var(--accent-light);
 }
 
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer span {
+  color: var(--accent);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(30px);
