@@ -2,16 +2,25 @@
 <html lang="pt-BR">
 
 <head>
+  <!-- =====================================================
+       PORTFÓLIO PESSOAL — SPA (Single Page Application)
+       Desenvolvido com HTML5, CSS3 e JavaScript
+       ===================================================== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Iana Rodrigues — Desenvolvedora Web</title>
 
+  <!-- Folha de estilos externa -->
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
+  <!-- =====================================================
+       MODAL DE CONFIRMAÇÃO DO FORMULÁRIO
+  ===================================================== -->
   <div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
     <div class="modal-box">
+      <!-- confirma envio bem-sucedido -->
       <span class="modal-icon" aria-hidden="true">✅</span>
       <h2 class="modal-titulo" id="modal-titulo">Mensagem enviada!</h2>
       <p class="modal-texto">
@@ -22,10 +31,15 @@
       <button class="modal-fechar" id="modal-fechar-btn">Fechar</button>
     </div>
   </div>
+
+  <!-- =====================================================
+       CABEÇALHO / NAVEGAÇÃO — fixo no topo em todas as seções
+  ===================================================== -->
   <header>
     <nav aria-label="Navegação principal">
       <a href="#sobre" class="nav-logo"><span>&lt;/&gt;</span> Iana Rodrigues</a>
 
+      <!-- Links de navegação — âncoras para cada seção da SPA -->
       <ul class="nav-links" id="nav-links" role="list">
         <li><a href="#sobre" class="nav-link active">Sobre mim</a></li>
         <li><a href="#formacao" class="nav-link">Formação</a></li>
@@ -33,12 +47,15 @@
         <li><a href="#contato" class="nav-link">Contato</a></li>
       </ul>
 
+      <!-- Controles: toggle de tema + hambúrguer mobile -->
       <div class="nav-controls">
+        <!-- Botão para alternar entre tema claro e escuro -->
         <button id="theme-toggle" aria-label="Alternar tema" title="Alternar tema claro/escuro">
           <span id="theme-icon">☀️</span>
           <span id="theme-label">Claro</span>
         </button>
 
+        <!-- Botão hambúrguer — abre/fecha menu em mobile -->
         <button id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
           <span></span>
           <span></span>
@@ -48,13 +65,23 @@
     </nav>
   </header>
 
+  <!-- =====================================================
+       CONTEÚDO PRINCIPAL — todas as seções em uma única página
+  ===================================================== -->
   <main>
+
+    <!-- =================================================
+         SEÇÃO 1: SOBRE MIM
+         Contém: apresentação pessoal, hobbies, foto
+    ================================================= -->
     <section id="sobre" aria-label="Sobre mim">
       <div class="about-content">
 
+        <!-- Texto de apresentação -->
         <div class="about-text">
           <p class="about-eyebrow">Olá, mundo!</p>
 
+          <!-- Nome com tag de código como assinatura visual -->
           <h1 class="about-name">
             Iana<br>
             Rodrigues<span class="tag">&lt;dev/&gt;</span>
@@ -62,6 +89,7 @@
 
           <p class="about-role">Desenvolvedora Web · Estudante UNINTER</p>
 
+          <!-- Apresentação pessoal -->
           <p class="about-bio">
             Sou <strong>desenvolvedora Front-end Junior</strong> com foco em Angular, apaixonada por tecnologia e
             aprendizado contínuo.
@@ -71,6 +99,7 @@
             contribuir para projetos de impacto e construir soluções que gerem valor para as pessoas.
           </p>
 
+          <!-- Hobbies e interesses pessoais -->
           <div class="about-hobbies" aria-label="Interesses e hobbies">
             <span class="hobby-tag">📚 Leitura</span>
             <span class="hobby-tag">🎵 Música</span>
@@ -78,15 +107,17 @@
             <span class="hobby-tag">☕ Café</span>
           </div>
 
+          <!-- Botões de ação -->
           <div class="about-actions">
             <a href="#contato" class="btn-primary">Entre em contato</a>
             <a href="#portfolio" class="btn-outline">Ver projetos</a>
           </div>
         </div>
 
+        <!-- Avatar / foto de perfil -->
         <div class="about-avatar">
           <div class="avatar-frame" aria-hidden="true">
-            <img src="./assets/imagem_about.jpeg" alt="Foto de Iana Rodrigues" />
+            <img src="./assets/images/imagem_about.jpeg" alt="Foto de Iana Rodrigues" />
           </div>
         </div>
 
@@ -94,6 +125,11 @@
     </section>
 
     <div class="section-divider"></div>
+
+    <!-- =================================================
+         SEÇÃO 2: FORMAÇÃO
+         Contém: cursos, idiomas, habilidades técnicas
+    ================================================= -->
     <section id="formacao" aria-label="Formação acadêmica e habilidades">
 
       <div class="section-header reveal">
@@ -101,6 +137,7 @@
         <h2 class="section-title">Formação &amp; Habilidades</h2>
       </div>
 
+      <!-- Cards de formação educacional -->
       <div class="formacao-grid">
 
         <div class="formacao-card reveal reveal-delay-1">
@@ -234,10 +271,12 @@
 
       </div>
 
+      <!-- Idiomas com barras de progresso animadas -->
       <div class="idiomas-section reveal">
         <h3>Idiomas</h3>
         <div class="idiomas-list">
 
+          <!-- data-width define a largura-alvo animada pelo JS -->
           <div class="idioma-item">
             <span class="idioma-nome">Português</span>
             <div class="idioma-barra-bg">
@@ -265,6 +304,7 @@
         </div>
       </div>
 
+      <!-- Habilidades técnicas -->
       <div class="skills-section reveal">
         <h3>Habilidades Técnicas</h3>
         <div class="skills-tags" aria-label="Tecnologias e ferramentas">
@@ -291,6 +331,10 @@
 
     <div class="section-divider"></div>
 
+    <!-- =================================================
+         SEÇÃO 3: PORTFÓLIO
+         Contém: cards de projetos com links
+    ================================================= -->
     <section id="portfolio" aria-label="Projetos do portfólio">
 
       <div class="section-header reveal">
@@ -448,7 +492,12 @@
 
     <div class="section-divider"></div>
 
+    <!-- =================================================
+         SEÇÃO 4: CONTATO
+         Contém: formulário com validação JS + modal de confirmação
+    ================================================= -->
     <section id="contato" aria-label="Formulário de contato">
+
       <div class="section-header reveal">
         <p class="section-label">Bora conversar?</p>
         <h2 class="section-title">Contato</h2>
@@ -456,6 +505,7 @@
 
       <div class="contato-wrapper">
 
+        <!-- Informações de contato direto -->
         <div class="contato-info reveal">
           <h3>Vamos criar algo juntos</h3>
           <p>
@@ -493,11 +543,15 @@
           </div>
         </div>
 
+        <!-- Formulário de contato -->
         <div class="form-card reveal reveal-delay-1">
           <p class="form-title">Envie uma mensagem</p>
 
+          <!-- novalidate: desativa validação nativa do browser
+               para que apenas o JS valide -->
           <form id="contact-form" novalidate>
 
+            <!-- Campo: Nome -->
             <div class="form-group">
               <label for="nome">
                 Nome <span class="req" aria-hidden="true">*</span>
@@ -509,6 +563,7 @@
               </p>
             </div>
 
+            <!-- Campo: E-mail -->
             <div class="form-group">
               <label for="email">
                 E-mail <span class="req" aria-hidden="true">*</span>
@@ -520,6 +575,7 @@
               </p>
             </div>
 
+            <!-- Campo: Mensagem -->
             <div class="form-group">
               <label for="mensagem">
                 Mensagem <span class="req" aria-hidden="true">*</span>
@@ -531,6 +587,7 @@
               </p>
             </div>
 
+            <!-- Botão de envio -->
             <button type="submit" class="form-submit" id="btn-submit">
               <span>Enviar mensagem</span>
             </button>
@@ -542,13 +599,15 @@
 
   </main>
 
+  <!-- Rodapé -->
   <footer>
     <p>
       Feito por <strong>Iana Rodrigues</strong> —
       HTML5, CSS3 &amp; JavaScript · <span id="ano-atual"></span>
     </p>
   </footer>
-  
+
+  <!-- Script externo -->
   <script src="./js/script.js"></script>
 
 </body>

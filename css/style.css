@@ -1,4 +1,9 @@
+/* -------------------------------------------------------
+   VARIÁVEIS DE TEMA (claro e escuro)
+   Controladas pelo JavaScript via classe .light no <html>
+------------------------------------------------------- */
 :root {
+  /* Tema escuro (padrão) */
   --bg-primary: #0a0a0f;
   --bg-secondary: #12121e;
   --bg-card: #1a1a2e;
@@ -14,6 +19,7 @@
   --shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
+/* Tema claro — aplicado pela classe .light no <html> */
 .light {
   --bg-primary: #f5f5fa;
   --bg-secondary: #ededf5;
@@ -30,6 +36,9 @@
   --shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
 }
 
+/* -------------------------------------------------------
+   RESET E BASE
+------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -38,6 +47,22 @@
   box-sizing: border-box;
 }
 
+html {
+  /* Suaviza a rolagem ao clicar nas âncoras do menu */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* -------------------------------------------------------
+   NAVEGAÇÃO FIXA NO TOPO
+------------------------------------------------------- */
 header {
   position: fixed;
   top: 0;
@@ -45,7 +70,6 @@ header {
   width: 100%;
   z-index: 1000;
   background: var(--nav-bg);
-  /* Blur para efeito "vidro fosco" */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -75,6 +99,7 @@ nav {
   color: var(--accent);
 }
 
+/* Links do menu desktop */
 .nav-links {
   display: flex;
   list-style: none;
@@ -92,6 +117,7 @@ nav {
   position: relative;
 }
 
+/* Sublinhado animado nos links */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -113,12 +139,14 @@ nav {
   width: 100%;
 }
 
+/* Controles do lado direito: botão de tema + hamburguer */
 .nav-controls {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
+/* Botão de alternância de tema (claro/escuro) */
 #theme-toggle {
   background: none;
   border: 1px solid var(--border);
@@ -138,6 +166,7 @@ nav {
   color: var(--accent);
 }
 
+/* Botão hambúrguer — visível só em mobile */
 #menu-toggle {
   display: none;
   background: none;
@@ -157,6 +186,7 @@ nav {
   transition: all 0.3s ease;
 }
 
+/* Animação do hambúrguer → X */
 #menu-toggle.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -170,10 +200,28 @@ nav {
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* -------------------------------------------------------
+   LAYOUT PRINCIPAL
+------------------------------------------------------- */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Espaço para o header fixo */
+section {
+  padding-top: 120px;
+}
+
+/* -------------------------------------------------------
+   SEÇÃO "SOBRE MIM"
+------------------------------------------------------- */
 #sobre {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-top: 80px;
 }
 
@@ -188,6 +236,7 @@ nav {
   order: 1;
 }
 
+/* Etiqueta acima do nome */
 .about-eyebrow {
   font-size: 0.8rem;
   font-weight: 500;
@@ -208,6 +257,7 @@ nav {
   background: var(--accent);
 }
 
+/* Nome em destaque com tipografia grande */
 .about-name {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(2.8rem, 6vw, 5rem);
@@ -218,6 +268,7 @@ nav {
   margin-bottom: 0.5rem;
 }
 
+/* Tag de código como assinatura visual */
 .about-name .tag {
   color: var(--accent);
   font-size: 0.45em;
@@ -242,6 +293,7 @@ nav {
   line-height: 1.8;
 }
 
+/* Hobbies/interesses com tags */
 .about-hobbies {
   display: flex;
   flex-wrap: wrap;
@@ -265,6 +317,7 @@ nav {
   background: var(--accent-glow);
 }
 
+/* Botões de ação do about */
 .about-actions {
   display: flex;
   gap: 1rem;
@@ -310,6 +363,7 @@ nav {
   transform: translateY(-2px);
 }
 
+/* Foto do about */
 .about-avatar {
   order: 2;
   display: flex;
@@ -332,6 +386,7 @@ nav {
   overflow: hidden;
 }
 
+/* Animação do blob */
 @keyframes morphBlob {
 
   0%,
@@ -352,6 +407,7 @@ nav {
   }
 }
 
+/* Detalhe de decoração atrás da foto */
 .avatar-frame::before {
   content: '';
   position: absolute;
@@ -371,6 +427,9 @@ nav {
   z-index: 1;
 }
 
+/* -------------------------------------------------------
+   SEPARADOR ENTRE SEÇÕES
+------------------------------------------------------- */
 .section-divider {
   width: 100%;
   height: 1px;
@@ -378,6 +437,9 @@ nav {
   margin: 2rem 0;
 }
 
+/* -------------------------------------------------------
+   CABEÇALHO DE SEÇÃO REUTILIZÁVEL
+------------------------------------------------------- */
 .section-header {
   margin-bottom: 3rem;
 }
@@ -400,10 +462,14 @@ nav {
   line-height: 1.2;
 }
 
+/* -------------------------------------------------------
+   SEÇÃO FORMAÇÃO
+------------------------------------------------------- */
 #formacao {
   padding-bottom: 80px;
 }
 
+/* Grid de cards de formação */
 .formacao-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -420,6 +486,7 @@ nav {
   overflow: hidden;
 }
 
+/* Linha de accent no topo do card ao hover */
 .formacao-card::before {
   content: '';
   position: absolute;
@@ -478,6 +545,7 @@ nav {
   line-height: 1.6;
 }
 
+/* Sub-seção: Idiomas */
 .idiomas-section {
   margin-top: 3rem;
 }
@@ -510,6 +578,7 @@ nav {
   flex-shrink: 0;
 }
 
+/* Barra de progresso do idioma */
 .idioma-barra-bg {
   flex: 1;
   height: 6px;
@@ -533,6 +602,7 @@ nav {
   flex-shrink: 0;
 }
 
+/* Sub-seção: Habilidades Técnicas */
 .skills-section {
   margin-top: 3rem;
 }
@@ -568,6 +638,9 @@ nav {
   color: var(--accent);
 }
 
+/* -------------------------------------------------------
+   SEÇÃO PORTFÓLIO
+------------------------------------------------------- */
 #portfolio {
   padding-bottom: 80px;
 }
@@ -592,6 +665,7 @@ nav {
   box-shadow: 0 20px 60px var(--accent-glow);
 }
 
+/* Preview visual do projeto */
 .portfolio-preview {
   height: 200px;
   display: flex;
@@ -614,6 +688,7 @@ nav {
   background: linear-gradient(135deg, #0a1a2e 0%, #0a2e1a 100%);
 }
 
+/* Grade decorativa no preview */
 .portfolio-preview::before {
   content: '';
   position: absolute;
@@ -693,6 +768,9 @@ nav {
   background: var(--accent-glow);
 }
 
+/* -------------------------------------------------------
+   SEÇÃO CONTATO
+------------------------------------------------------- */
 #contato {
   padding-bottom: 120px;
 }
@@ -719,6 +797,7 @@ nav {
   margin-bottom: 2rem;
 }
 
+/* Ítens de contato (e-mail, LinkedIn, GitHub) */
 .contact-items {
   display: flex;
   flex-direction: column;
@@ -762,6 +841,9 @@ nav {
   letter-spacing: 0.08em;
 }
 
+/* -------------------------------------------------------
+   FORMULÁRIO DE CONTATO
+------------------------------------------------------- */
 .form-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -777,6 +859,7 @@ nav {
   margin-bottom: 1.5rem;
 }
 
+/* Grupos de campo */
 .form-group {
   margin-bottom: 1.25rem;
 }
@@ -790,6 +873,7 @@ nav {
   letter-spacing: 0.04em;
 }
 
+/* Asterisco indicando campo obrigatório */
 .form-group label .req {
   color: var(--accent);
   margin-left: 2px;
@@ -810,18 +894,21 @@ nav {
   resize: vertical;
 }
 
+/* Estado de foco no input */
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
+/* Estado de erro na validação */
 .form-group input.erro,
 .form-group textarea.erro {
   border-color: #ff6b6b;
   box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.15);
 }
 
+/* Mensagem de erro abaixo do campo */
 .campo-erro {
   font-size: 0.78rem;
   color: #ff6b6b;
@@ -835,6 +922,7 @@ nav {
   display: flex;
 }
 
+/* Botão de envio do formulário */
 .form-submit {
   width: 100%;
   padding: 0.9rem;
@@ -863,6 +951,9 @@ nav {
   transform: translateY(0);
 }
 
+/* -------------------------------------------------------
+   MODAL DE CONFIRMAÇÃO DE ENVIO
+------------------------------------------------------- */
 #modal-overlay {
   display: none;
   position: fixed;
@@ -938,6 +1029,9 @@ nav {
   background: var(--accent-light);
 }
 
+/* -------------------------------------------------------
+   RODAPÉ
+------------------------------------------------------- */
 footer {
   border-top: 1px solid var(--border);
   padding: 2rem;
@@ -953,6 +1047,10 @@ footer span {
   color: var(--accent);
 }
 
+/* -------------------------------------------------------
+   ANIMAÇÕES DE ENTRADA (scroll reveal)
+   Controladas pelo JavaScript via IntersectionObserver
+------------------------------------------------------- */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -964,6 +1062,7 @@ footer span {
   transform: translateY(0);
 }
 
+/* Delay escalonado para elementos em grid */
 .reveal-delay-1 {
   transition-delay: 0.1s;
 }
@@ -976,7 +1075,12 @@ footer span {
   transition-delay: 0.3s;
 }
 
+/* -------------------------------------------------------
+   RESPONSIVIDADE — MOBILE (até 768px)
+------------------------------------------------------- */
 @media (max-width: 768px) {
+
+  /* Menu mobile — links ficam em dropdown vertical */
   .nav-links {
     display: none;
     position: absolute;
@@ -1009,10 +1113,12 @@ footer span {
     display: none;
   }
 
+  /* Exibe o botão hambúrguer */
   #menu-toggle {
     display: flex;
   }
 
+  /* about em coluna única no mobile */
   .about-content {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -1043,12 +1149,14 @@ footer span {
     justify-content: center;
   }
 
+  /* Contato em coluna única no mobile */
   .contato-wrapper {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 }
 
+/* Telas muito pequenas (até 480px) */
 @media (max-width: 480px) {
   main {
     padding: 0 1.25rem;
