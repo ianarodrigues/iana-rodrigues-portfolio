@@ -130,3 +130,24 @@ form.addEventListener('submit', (e) => {
     abrirModal();
   }
 });
+
+function abrirModal() {
+  modalOverlay.classList.add('visivel');
+  modalFecharBtn.focus();
+}
+
+function fecharModal() {
+  modalOverlay.classList.remove('visivel');
+}
+
+modalFecharBtn.addEventListener('click', fecharModal);
+
+modalOverlay.addEventListener('click', (e) => {
+  if (e.target === modalOverlay) fecharModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalOverlay.classList.contains('visivel')) {
+    fecharModal();
+  }
+});
