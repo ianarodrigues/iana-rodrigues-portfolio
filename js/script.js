@@ -17,6 +17,29 @@ navLinks.querySelectorAll('a').forEach(link => {
   });
 });
 
+const sections = document.querySelectorAll('section[id]');
+const navItens = document.querySelectorAll('.nav-link');
+
+function atualizarLinkAtivo() {
+  const scrollPos = window.scrollY + 100;
+
+  sections.forEach(sec => {
+    const topo = sec.offsetTop;
+    const altura = sec.offsetHeight;
+
+    /* Verifica qual seção está visível */
+    if (scrollPos >= topo && scrollPos < topo + altura) {
+      navItens.forEach(l => l.classList.remove('active'));
+      const linkAtivo = document.querySelector(`.nav-link[href="#${sec.id}"]`);
+      if (linkAtivo) linkAtivo.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', atualizarLinkAtivo);
+
+atualizarLinkAtivo();
+
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
 const themeLabel = document.getElementById('theme-label');
