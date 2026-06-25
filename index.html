@@ -10,6 +10,18 @@
 </head>
 
 <body>
+  <div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <div class="modal-box">
+      <span class="modal-icon" aria-hidden="true">✅</span>
+      <h2 class="modal-titulo" id="modal-titulo">Mensagem enviada!</h2>
+      <p class="modal-texto">
+        Obrigada pelo contato. Sua mensagem foi recebida com sucesso.
+
+        Retornarei em breve!
+      </p>
+      <button class="modal-fechar" id="modal-fechar-btn">Fechar</button>
+    </div>
+  </div>
   <header>
     <nav aria-label="Navegação principal">
       <a href="#sobre" class="nav-logo"><span>&lt;/&gt;</span> Iana Rodrigues</a>
@@ -435,8 +447,99 @@
     </section>
 
     <div class="section-divider"></div>
-    
-    <section id="contato"></section>
+
+    <section id="contato" aria-label="Formulário de contato">
+      <div class="section-header reveal">
+        <p class="section-label">Bora conversar?</p>
+        <h2 class="section-title">Contato</h2>
+      </div>
+
+      <div class="contato-wrapper">
+
+        <div class="contato-info reveal">
+          <h3>Vamos criar algo juntos</h3>
+          <p>
+            Estou aberta a colaborações e conversas sobre
+            tecnologia. Me mande uma mensagem!
+          </p>
+
+          <div class="contact-items">
+
+            <a href="mailto:moniquesrlima@gmail.com?subject=Contato%20Portfolio" class="contact-item">
+              <span class="contact-item-icon" aria-hidden="true">📧</span>
+              <div class="contact-item-text">
+                <span class="contact-item-label">E-mail</span>
+                moniquesrlima@gmail.com
+              </div>
+            </a>
+
+            <a href="https://linkedin.com/in/ianarodrigues" target="_blank" rel="noopener noreferrer"
+              class="contact-item">
+              <span class="contact-item-icon" aria-hidden="true">💼</span>
+              <div class="contact-item-text">
+                <span class="contact-item-label">LinkedIn</span>
+                linkedin.com/in/ianarodrigues
+              </div>
+            </a>
+
+            <a href="https://github.com/ianarodrigues" target="_blank" rel="noopener noreferrer" class="contact-item">
+              <span class="contact-item-icon" aria-hidden="true">🐙</span>
+              <div class="contact-item-text">
+                <span class="contact-item-label">GitHub</span>
+                github.com/ianarodrigues
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="form-card reveal reveal-delay-1">
+          <p class="form-title">Envie uma mensagem</p>
+
+          <form id="contact-form" novalidate>
+
+            <div class="form-group">
+              <label for="nome">
+                Nome <span class="req" aria-hidden="true">*</span>
+              </label>
+              <input type="text" id="nome" name="nome" placeholder="Seu nome completo" autocomplete="name"
+                aria-required="true" aria-describedby="nome-erro" />
+              <p class="campo-erro" id="nome-erro" role="alert">
+                ⚠️ Por favor, informe seu nome.
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="email">
+                E-mail <span class="req" aria-hidden="true">*</span>
+              </label>
+              <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email"
+                aria-required="true" aria-describedby="email-erro" />
+              <p class="campo-erro" id="email-erro" role="alert">
+                ⚠️ Informe um e-mail válido (exemplo: usuario@dominio.com).
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="mensagem">
+                Mensagem <span class="req" aria-hidden="true">*</span>
+              </label>
+              <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..."
+                aria-required="true" aria-describedby="mensagem-erro"></textarea>
+              <p class="campo-erro" id="mensagem-erro" role="alert">
+                ⚠️ Por favor, escreva uma mensagem.
+              </p>
+            </div>
+
+            <button type="submit" class="form-submit" id="btn-submit">
+              <span>Enviar mensagem</span>
+            </button>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer></footer>
